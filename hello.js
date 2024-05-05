@@ -3,11 +3,22 @@ class Car {
         this.make = make,
             this.model = model
     }
-
     displayInfo() {
-        console.log(`Car ${this.make}, ${this.model}`);
+        console.log(`Car -> ${this.make}, ${this.model}`)
     }
 }
 
-let car1 = new Car("Toyota", "Corolla");
-console.log(car1.displayInfo());
+class ElectricCar extends Car {
+    constructor(make, model, batteryRange) {
+        super(make, model)
+        this.batteryRange = batteryRange
+    }
+
+    displayRange() {
+        return `Battery Range ${this.batteryRange} km`;
+    }
+}
+
+let electricCar1 = new ElectricCar("Tesla", "Model 3", 400);
+console.log(electricCar1.displayInfo());
+console.log(electricCar1.displayRange());
